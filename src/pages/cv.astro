@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import profile from '../data/profile.json';
+import { getCollection } from 'astro:content';
+import { local } from '../lib/paths';
+const projects = (await getCollection('projects', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order);
+---
+<Layout title="Curriculum vitae" active="cv">
+  <header class="cv-header"><p class="eyebrow">Curriculum vitae</p><h1>{profile.name}</h1><p>{profile.institution} · <a href={`mailto:${profile.email}`}>{profile.email}</a></p><button class="print-button" id="print-cv">Print / save as PDF <span aria-hidden="true">↗</span></button></header>
+  <div class="cv-content">
+    <section><h2>Research interests</h2><p>{profile.interests.join(' · ')}</p></section>
+    <section><h2>Education</h2><div class="cv-entry"><h3>{profile.institution}</h3><p>{profile.degree}<br />Second major in {profile.secondMajor}</p><p class="muted">March 2020 – February 2027 (expected) · GPA 4.12 / 4.5</p></div></section>
+    <section><h2>Research experience</h2>{profile.experience.map(item => <div class="cv-entry"><div class="cv-line"><h3>{item.lab}</h3><span>{item.period}</span></div><p>{item.role} · Advisor: {item.advisor}</p><p>{item.description}</p></div>)}</section>
+    <section><h2>Conference poster</h2><div class="cv-entry"><h3>Analyzing Types of Vague Degree Expressions and Designing a Classification Prompt for LLM-based Support Systems</h3><p><strong>Jangwoo Park</strong>, Myungjin Kim, Kyungsik Han</p><p>2026 Korea Data Mining Society Summer Conference · Poster P2-23</p><a href={local('projects/vague-design-requests/#poster')}>Project and original Korean title ↗</a></div></section>
+    <section><h2>Selected projects</h2>{projects.map(project => <div class="cv-entry"><div class="cv-line"><h3><a href={local(`projects/${project.id}/`)}>{project.data.title}</a></h3><span>{project.data.period}</span></div><p>{project.data.summary}</p><p class="muted">{project.data.role}</p></div>)}<div class="cv-entry"><h3>Music-to-Scent Interactive Prototype</h3><p>Fall 2025 · Physical Computing course</p><p>Implemented interaction logic for an Arduino prototype connecting high- and low-arousal music states to scent output.</p></div><div class="cv-entry"><h3>Self-Driving Car Youth Challenge</h3><p>Fall 2020 · Encouragement Award</p><p>Designed driving algorithms and software logic for an Arduino-based self-driving car.</p></div></section>
+    <section><h2>Honors</h2><ul>{profile.honors.map(item => <li>{item}</li>)}</ul></section>
+    <section><h2>Technical skills</h2><dl class="skills-list">{Object.entries(profile.skills).map(([key, value]) => <div><dt>{key}</dt><dd>{value}</dd></div>)}</dl></section>
+    <section><h2>Additional experience</h2><div class="cv-entry"><h3>HUHS academic club</h3><p>March 2020 – Present</p><p>Study groups in LLMs, AI/HCI paper reading, C programming, and TensorFlow.</p></div><div class="cv-entry"><h3>Republic of Korea Air Force</h3><p>Satellite Communications Operator · April 2023 – January 2025</p><p>Honorably discharged as Sergeant.</p></div></section>
+  </div>
+  <script>document.getElementById('print-cv')?.addEventListener('click', () => window.print());</script>
+</Layout>

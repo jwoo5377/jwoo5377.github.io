@@ -1,0 +1,43 @@
+{
+  "name": "Jangwoo Park",
+  "nameKo": "박장우",
+  "email": "jwoo5377@gmail.com",
+  "github": "https://github.com/jwoo5377",
+  "institution": "Hanyang University",
+  "degree": "B.S. in Interior Architecture Design",
+  "secondMajor": "Computer Science",
+  "expectedGraduation": "February 2027",
+  "interests": ["Human–Computer Interaction", "Human–AI Interaction", "AI for Design Support"],
+  "about": [
+    "I am an undergraduate student in Interior Architecture Design at Hanyang University, with a second major in Computer Science.",
+    "My interests lie in human–computer interaction and AI systems that support designers. I explore how AI can help people express their intentions and draw on their past decisions, while keeping them in control of the final judgment."
+  ],
+  "updated": "September 2026",
+  "experience": [
+    {
+      "period": "Jun – Aug 2026",
+      "lab": "Human-Centered Computing Lab",
+      "role": "Undergraduate Research Intern",
+      "advisor": "Prof. Kyungsik Han",
+      "description": "Designed LLM prompts for conversational image search and studied vague degree expressions in user requests.",
+      "project": "vague-design-requests"
+    },
+    {
+      "period": "Mar – Dec 2022",
+      "lab": "Design AI Lab",
+      "role": "Research Intern",
+      "advisor": "Prof. Kyung Hoon Hyun",
+      "description": "Built a floorplan-to-DWG pipeline and a Unity platform for a Bayesian Information Gain study; conducted the user study and explored sketch-style learning. Formerly Design Informatics Lab."
+    }
+  ],
+  "honors": [
+    "High Honors · Fall 2021",
+    "Honors · Spring 2020, Spring 2021, Spring 2026",
+    "Encouragement Award · Self-Driving Car Youth Challenge, Fall 2020"
+  ],
+  "skills": {
+    "Programming": "Python, C/C++, C#, Java, JavaScript",
+    "Research & prototyping": "PyTorch, OpenCV, Unity, Arduino, Raspberry Pi",
+    "Design": "Rhino, SketchUp, Blender, AutoCAD, Revit, Photoshop, Illustrator"
+  }
+}

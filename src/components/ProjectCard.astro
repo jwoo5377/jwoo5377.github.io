@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { local } from '../lib/paths';
+import ExpressionVisual from './ExpressionVisual.astro';
+interface Props { project: CollectionEntry<'projects'>; index: number; }
+const { project, index } = Astro.props;
+const { data } = project;
+---
+<article class="project-row">
+  <a class:list={['project-preview', `preview-${project.id}`]} href={local(`projects/${project.id}/`)} aria-label={`View ${data.title}`} tabindex="-1" aria-hidden="true">
+    {data.hero ? <Image src={data.hero} alt="" width={680} format="webp" loading="lazy" /> : project.id === 'vague-design-requests' ? <ExpressionVisual compact /> : <div class="typographic-cover"><span class="eyebrow">{data.category}</span><strong>{data.title}</strong></div>}
+  </a>
+  <div class="project-copy">
+    <div class="project-kicker"><span>{String(index + 1).padStart(2, '0')} / {data.category}</span><span>{data.year}</span></div>
+    <h3><a href={local(`projects/${project.id}/`)}>{data.title}<span class="project-arrow" aria-hidden="true">↗</span></a></h3>
+    <p class="project-subtitle">{data.subtitle}</p>
+    <p class="project-summary">{data.summary}</p>
+    <p class="project-role">{data.role}</p>
+    <div class="tags">{data.tags.map(tag => <span>{tag}</span>)}</div>
+  </div>
+</article>
