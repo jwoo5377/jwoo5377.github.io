@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import ExpressionVisual from '../../components/ExpressionVisual.astro';
+import Emphasis from '../../components/Emphasis.astro';
 import { local } from '../../lib/paths';
 export async function getStaticPaths() {
   const projects = (await getCollection('projects', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order);
@@ -18,7 +19,7 @@ const { Content, headings } = await render(project);
     <p class="eyebrow">{data.category} / {data.year}</p>
     <h1>{data.title}</h1>
     <p class="detail-subtitle">{data.subtitle}</p>
-    <p class="detail-summary">{data.summary}</p>
+    <p class="detail-summary"><Emphasis text={data.summary} /></p>
     <dl class="project-meta"><div><dt>Role</dt><dd>{data.role}</dd></div><div><dt>When</dt><dd>{data.period}</dd></div><div><dt>Context</dt><dd>{data.context}</dd></div></dl>
   </header>
   {(data.hero || project.id === 'vague-design-requests') && <figure class="project-hero">
