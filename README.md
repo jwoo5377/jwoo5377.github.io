@@ -66,7 +66,13 @@ pnpm preview
 
 ## GitHub Pages로 공개하기
 
-연결할 계정은 `jwoo5377`, 저장소 이름은 `jwoo5377.github.io`로 준비했습니다. 배포 후 사용할 주소는 `https://jwoo5377.github.io/`입니다.
+2026년 9월 29일 GitHub Pages 배포를 완료했습니다.
+
+- 홈페이지: https://jwoo5377.github.io/
+- 저장소: https://github.com/jwoo5377/jwoo5377.github.io
+- 편집기: https://vscode.dev/github/jwoo5377/jwoo5377.github.io
+
+`main` 브랜치에 변경 사항을 저장하면 `Publish portfolio`가 홈페이지를 자동으로 갱신합니다.
 
 **이 `website` 폴더의 내용이 저장소의 최상위가 되도록 올립니다.** 상위 프로젝트의 CV·원본 자료·검토 기록 전체를 올리는 방식이 아닙니다.
 
@@ -76,7 +82,7 @@ pnpm preview
 4. 저장소의 **Actions → Publish portfolio** 실행 결과를 확인합니다. 필요하면 **Run workflow**를 눌러 실행합니다.
 5. 완료되면 `https://계정아이디.github.io/`에서 열립니다.
 
-일반 이름의 저장소를 쓰면 `https://계정아이디.github.io/저장소이름/`으로 열립니다. 두 경우의 기본 주소와 내부 링크 경로는 배포 환경에서 자동으로 설정하도록 구성했습니다. 실제 원격 배포는 아직 수행하지 않았습니다.
+일반 이름의 저장소를 쓰면 `https://계정아이디.github.io/저장소이름/`으로 열립니다. 두 경우의 기본 주소와 내부 링크 경로는 배포 환경에서 자동으로 설정하도록 구성했습니다.
 
 개인 도메인은 이후에 연결할 수 있습니다. GitHub Pages에서 도메인을 설정하고 DNS를 연결한 뒤 저장소 변수 `SITE_URL`을 `https://내도메인`으로 지정합니다. 필요하면 `public/CNAME`에 도메인을 기록합니다. `BASE_PATH`는 `/`로 설정합니다. 도메인 구입·갱신 비용은 호스팅과 별도입니다.
 
